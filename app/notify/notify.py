@@ -7,10 +7,21 @@ from loguru import logger
 
 
 class NotifyBot(object):
-    def __init__(self, content, title="什么值得买签到", **kwargs: Dict) -> None:
+    def __init__(self, content, title=None, **kwargs: Dict) -> None:
         self.content = content
-        self.title = title
         self.kwargs = kwargs
+
+        # 优先判断特定关键词
+        if title is None:
+            if "Fail to login" in content:
+                self.title = "失败 值得买签到"
+            elif "签到成功" in content:
+                self.title = "成功 值得买签到"
+            else:
+                short = (content or "")[:5]
+                self.title = f"{short} 什么值得买签到"
+        else:
+            self.title = title
 
         self.push_plus()
         self.server_chain()
