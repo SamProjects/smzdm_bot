@@ -2,7 +2,7 @@
 什么值得买自动签到脚本
 项目地址: https://github.com/Chasing66/smzdm_bot
 0 9 * * * smzdm_ql.py
-const $ = new Env("什么值得买签到");
+const $ = new Env("2值得买签到");
 """
 
 import os
