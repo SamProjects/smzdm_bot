@@ -19,7 +19,7 @@ class NotifyBot(object):
                 self.title = "成功 值得买签到"
             else:
                 short = (content or "")[:5]
-                self.title = f"{short} 什么值得买签到"
+                self.title = f"{short} 其他值得买签到"
         else:
             self.title = title
 
